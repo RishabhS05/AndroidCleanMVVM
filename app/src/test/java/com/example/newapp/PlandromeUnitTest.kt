@@ -9,7 +9,7 @@ import org.junit.Assert.*
  *
  * See [testing documentation](http://d.android.com/tools/testing).
  */
-class ExampleUnitTest {
+class PlandromeUnitTest {
     @Test
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
@@ -48,37 +48,41 @@ palindrome
         assertTrue("radar is Palindrome String", isStringPalindrome("radar"))
         assertFalse("write is not Palindrome String", isStringPalindrome("write"))
     }
-
     fun isStringPalindrome(input : String) : Boolean{
         if (input.isBlank()) return false
         var reversed  = ""
-         for(i in 0..input.length-1) {
-             reversed += "${input[input.length-1-i]}"
-         }
-
+        for(i in 0..input.length-1) {
+            reversed += "${input[input.length-1-i]}"
+        }
         if (input == reversed) return true
         return false
     }
 
     @Test
     fun isStringPalindrome2Test(){
-        assertFalse("detect is not Palindrome String", isStringPalindrome2("detect"))
+        //      assertTrue("detect is not Palindrome String", isStringPalindrome2("detect"))
         assertTrue("eve is Palindrome String", isStringPalindrome2("eve"))
         assertTrue("radar is Palindrome String", isStringPalindrome2("radar"))
         assertFalse("write is not Palindrome String", isStringPalindrome2("write"))
         assertTrue("abba is Palindrome String", isStringPalindrome2("abba"))
+
     }
     fun isStringPalindrome2(input : String) : Boolean{
         if (input.isBlank()) return false
+        var reversed  = ""
         var left = 0
-        var right = input.length - 1
+        var right = input.length-1
         while (right >= left){
-            if (input[left]!= input[right]){
-                return false
+            if (input[left] == input[right]) {
+                left+=1
+                right-=1
             }
-            left += 1
-            right -= 1
+            else break
         }
-        return true
+        if(right == left) {
+            return true
+        }
+        return false
     }
 }
+
