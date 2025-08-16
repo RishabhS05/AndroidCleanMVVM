@@ -27,5 +27,9 @@ class KotlinBasics {
         for ((index, value) in numbers.withIndex()) {
             println("The step at $index is \"$value\"")
         }
+        // advance loop
+        for (num in numbers){
+            println("The step at $num")
+        }
     }
 }

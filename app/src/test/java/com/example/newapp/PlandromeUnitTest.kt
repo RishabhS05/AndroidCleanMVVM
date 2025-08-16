@@ -68,8 +68,15 @@ palindrome
 
     }
     fun isStringPalindrome2(input : String) : Boolean{
+        /**
+         * 1) have 2 pointer/variable both ends of string or array
+         * 2) loop terminating condition left <= right
+         * 3) check breaking condition
+         * 4) condition to increase left and decrease right
+         *
+         * Time complexcity = O(n)
+         * */
         if (input.isBlank()) return false
-        var reversed  = ""
         var left = 0
         var right = input.length-1
         while (right >= left){
@@ -77,12 +84,9 @@ palindrome
                 left+=1
                 right-=1
             }
-            else break
+            else return false
         }
-        if(right == left) {
-            return true
-        }
-        return false
+        return true
     }
 }
 
