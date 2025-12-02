@@ -3,10 +3,8 @@ package com.example.newapp.view.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.newapp.domain.Result.Loading
 import com.example.newapp.domain.Result.Success
 import com.example.newapp.domain.repository.BaseRepoImplementation
-
 import com.example.newapp.domain.repository.IRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -39,8 +37,7 @@ class HomeViewModel() : ViewModel() {
                             it.copy(characterList = result.data)
                         }
                     }
-
-                    else -> Loading
+                    else -> {}
                 }
             }
         }

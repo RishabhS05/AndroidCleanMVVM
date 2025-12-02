@@ -7,8 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 
-class NetworkApiService() {
-
+object NetworkApiService {
     fun retrofitObj(): ApiService = Retrofit.Builder()
         .baseUrl(APIConstants.BASE_URL)
         .client(OkHttpClient.Builder()
@@ -19,5 +18,5 @@ class NetworkApiService() {
                 .build())
         .addConverterFactory(GsonConverterFactory.create())
         .build()
-        .create<ApiService>(ApiService::class.java)
+        .create(ApiService::class.java)
 }
