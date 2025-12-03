@@ -9,6 +9,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -28,11 +29,38 @@ fun HomeScreen(onNavigateToDetail: (Character) -> Unit = {}) {
     val state = viewmodel.state.collectAsStateWithLifecycle().value
     HomeScreenView(homeState = state, onNavigateToDetail)
 }
+@Composable fun HomeScreen2(onNavigateToDetail: (Character) -> Unit = {}){
+    val viewModel : HomeViewModel = viewModel()
+    val state = viewModel.characterLiveData.observeAsState()
+    state.value?.let { HomeScreenView(it,onNavigateToDetail) }
+}
+
+@Composable
+fun HomeScreenView(list: CharacterList, onNavigateTo: (Character) -> Unit = {}) {
+    if (list.data.isNotEmpty()) {
+        LazyColumn(modifier = Modifier.fillMaxSize()) {
+            items(list.data) { character ->
+                CardView(
+                    character = character,
+                    onClick = onNavigateTo
+                )
+            }
+        }
+    } else {
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text("No data found")
+        }
+    }
+}
 
 @Composable
 fun HomeScreenView(homeState: HomeState, onNavigateTo: (Character) -> Unit = {}) {
     if (!homeState.characterList?.data.isNullOrEmpty()) {
-        LazyColumn(modifier = Modifier.fillMaxSize()) {
+        LazyColumn(modifier = Modifier.fillMaxSize())  {
             items(homeState.characterList.data) { character ->
                 CardView(
                     character = character,

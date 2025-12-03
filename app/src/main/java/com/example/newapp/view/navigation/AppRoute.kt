@@ -9,6 +9,7 @@ import androidx.navigation.toRoute
 import com.example.newapp.data.models.Character
 import com.example.newapp.view.Details.DetailScreen
 import com.example.newapp.view.home.HomeScreen
+import com.example.newapp.view.home.HomeScreen2
 
 enum class AppRoute{ Home, }
 @Composable
@@ -19,7 +20,7 @@ fun AppNavigation(modifier: Modifier = Modifier) {
         startDestination = AppRoute.Home.name
     ){
         composable(AppRoute.Home.name) {
-            HomeScreen{ character ->
+            HomeScreen2{ character ->
                 navController.navigate(route= character)
             }
         }
