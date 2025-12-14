@@ -1,8 +1,8 @@
 package com.example.newapp.domain.repository
 
-import com.example.newapp.data.models.CharacterList
-import com.example.newapp.domain.network.ApiService
-import com.example.newapp.domain.network.NetworkApiService
+import com.example.newapp.dataLayer.models.CharacterList
+import com.example.newapp.dataLayer.network.ApiService
+import com.example.newapp.dataLayer.network.NetworkApiService
 
 class BaseRepoWithLiveData : IRepositoryLiveData {
     val apiService : ApiService by lazy {

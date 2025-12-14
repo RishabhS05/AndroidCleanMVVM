@@ -1,10 +1,9 @@
 package com.example.newapp.domain.repository
 
-import androidx.lifecycle.LiveData
-import com.example.newapp.data.models.CharacterList
-import com.example.newapp.domain.AppError
+import com.example.newapp.dataLayer.models.CharacterList
+import com.example.newapp.dataLayer.models.AppError
 import kotlinx.coroutines.flow.Flow
-import com.example.newapp.domain.Result
+import com.example.newapp.dataLayer.models.Result
 interface IRepository {
     suspend fun getCharactersList() : Flow<Result<CharacterList,AppError>>
 }

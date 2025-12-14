@@ -1,12 +1,12 @@
 package com.example.newapp.domain.repository
 
 import android.util.Log
-import com.example.newapp.data.models.CharacterList
-import com.example.newapp.domain.AppError
-import com.example.newapp.domain.NetworkError
-import com.example.newapp.domain.Result
-import com.example.newapp.domain.network.ApiService
-import com.example.newapp.domain.network.NetworkApiService
+import com.example.newapp.dataLayer.models.CharacterList
+import com.example.newapp.dataLayer.models.AppError
+import com.example.newapp.dataLayer.models.NetworkError
+import com.example.newapp.dataLayer.models.Result
+import com.example.newapp.dataLayer.network.ApiService
+import com.example.newapp.dataLayer.network.NetworkApiService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
