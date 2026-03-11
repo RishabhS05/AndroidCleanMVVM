@@ -12,10 +12,12 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+
 
 @Composable
 fun StepCounterScreen() {
-    val viewModelStepCounter : StepCounterViewModel = StepCounterViewModel()
+    val viewModelStepCounter  : StepCounterViewModel = viewModel()
     val state = viewModelStepCounter.state.collectAsState().value
     StepCounterScreenUI(state)
 }

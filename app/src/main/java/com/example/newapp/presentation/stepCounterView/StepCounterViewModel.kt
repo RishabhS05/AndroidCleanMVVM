@@ -9,7 +9,7 @@ interface HandleStepCounterIntent{
     data object StartTracker : HandleStepCounterIntent
 }
 
-data class StepCounterUIState(val stepCounterCurrent : StepCounterModel?=null )
+data class StepCounterUIState(val stepCounterCurrent : StepCounterModel?= null )
 class StepCounterViewModel (): ViewModel() {
     init {
         handleIntent(HandleStepCounterIntent.StartTracker)
